@@ -7,6 +7,6 @@
     <body>
         <a class="jcbtn">Create Game</a>
         <a class="jcbtn">Join Game</a>
-        <a class="htp">Howgjthgjrhhrgfyto Play!</a>
+        <a class="htp">How to Play!</a>
 </body>
     </html>
