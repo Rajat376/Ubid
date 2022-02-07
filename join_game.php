@@ -6,7 +6,7 @@
 </head>
     <body>
     <div class="parent">
-     <form>
+     <form method="post">
          <label>Enter your Username
              <input type="text" placeholder="user123" name="username" min-length=5>
 </br>
@@ -25,7 +25,15 @@
     {session_start();
         $_SESSION['username']=$_POST['username'];
         $_SESSION['room']=$_POST['room'];
-       
+        $conn=new mysqli("localhost","root" ,"","ubid");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+          }
+          $query1="INSERT INTO ".$_SESSION['room']." VALUES('".$_SESSION['username']."',1000); ";
+          
+          $result1=mysqli_query($conn,$query1);
+          if(!$result1)
+          echo "No such room";
 
         // Check connection
         
