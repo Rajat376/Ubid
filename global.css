@@ -1,6 +1,32 @@
 .jcbtn
-{}
+{
+    color: red;
+}
 .htp
 {}
 .create
 {}
+.parent1
+{
+    background-color: red;
+    
+    width:100vw;
+    height:100vh;
+}
+.hide
+{display:none;}
+.users
+{
+    width:40vw;
+    height:100vh;
+    background-color: white;
+    overflow:auto;
+}
+.me
+{
+    background-color: palegreen;
+}
+.userbox
+{
+    height: 10vw;
+}
