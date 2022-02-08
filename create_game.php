@@ -31,13 +31,13 @@
             die("Connection failed: " . $conn->connect_error);
           }
          
-          $query="CREATE TABLE ".$_SESSION['room']." ( username VARCHAR(100),  amount INTEGER);";
+          $query="CREATE TABLE ".$_SESSION['room']." ( player_no INTEGER AUTO_INCREMENT,username VARCHAR(100),  amount INTEGER, PRIMARY KEY(player_no));";
 
           $result=mysqli_query($conn,$query);
-          $query1="INSERT INTO ".$_SESSION['room']." VALUES('".$_SESSION['username']."',1000); ";
+          $query1="INSERT INTO ".$_SESSION['room']."(username,amount) VALUES('".$_SESSION['username']."',1000); ";
           
           $result1=mysqli_query($conn,$query1);
-          
+          header("location: http://localhost/Ubid/join_room.php");
 
     }
     ?>

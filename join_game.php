@@ -29,7 +29,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
-          $query1="INSERT INTO ".$_SESSION['room']." VALUES('".$_SESSION['username']."',1000); ";
+          $query1="INSERT INTO ".$_SESSION['room']."(username,amount) VALUES('".$_SESSION['username']."',1000); ";
           
           $result1=mysqli_query($conn,$query1);
           if(!$result1)
