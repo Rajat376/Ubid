@@ -69,7 +69,7 @@ function getData1() {
         <div class="users" id="users">
 
         </div>
-        <div class="game">
+        <div class="game" id="game">
           
         </div>
         <button class="hide" id="btn" onclick="getData()">get</button>
