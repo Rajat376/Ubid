@@ -37,7 +37,8 @@
           $query1="INSERT INTO ".$_SESSION['room']."(username,amount) VALUES('".$_SESSION['username']."',1000); ";
           
           $result1=mysqli_query($conn,$query1);
-          header("location: http://localhost/Ubid/join_room.php");
+          header("location: http://192.168.1.42/Ubid/join_room.php");
+          // server address/Ubid/join_room.php
 
     }
     ?>
