@@ -34,6 +34,14 @@
           $result1=mysqli_query($conn,$query1);
           if(!$result1)
           echo "No such room";
+          $query2="SELECT * FROM ".$_SESSION['room']." WHERE username='".$_SESSION['username']."';";
+          
+          $result2=mysqli_query($conn,$query2);
+          while($row=mysqli_fetch_assoc($result2))
+          {
+              $_SESSION['ID']=$row['ID'];
+              break;
+          }
           header("location: http://192.168.1.42/Ubid/join_room.php");
 // address of serverr/Ubid/join_room/php
         // Check connection
