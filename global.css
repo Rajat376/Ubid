@@ -1,17 +1,80 @@
+
 .jcbtn
-{
-    color: red;
+{ border:7px outset mediumturquoise;
+    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:teal;  
+    font-size: 55px;
+    padding: 10px;
+    padding-left: 3vw;
+    color:white;
+    text-align: center;
+    
+}
+.jcbtn2{
+    text-align: right; 
+    position: fixed;right: 0vw;top: 30vh; 
+    
+    
+}
+.jcbtn1{
+    text-align: center;
+    position: fixed;right: 0vw;top: 6vh;
+   
 }
 .htp
-{}
+{
+    text-decoration: none;
+    border:6px outset white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
+text-align: center;
+position:fixed;
+right:0vh;
+top:40vh;
+    background-color:wheat;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ margin-top: 100px;
+    color:teal;
+    font-size: 55px;
+    
+}
+.htp5{
+
+
+}
+.parent{
+    
+    
+    font-size: 25px;
+}
+.imgd1{ 
+    margin-left: 8vw;
+    width: 30vw;
+    
+   
+
+}
+
+.create1{
+    font-size: 50px;
+    padding: 30px;
+
+}
 .create
 {}
 .parent1
 {
-    background-color: red;
+    background-color:palegoldenrod;
     
     width:100vw;
     height:100vh;
+}
+.create1{
+    ba
+
 }
 .hide
 {display:none;}
@@ -19,18 +82,296 @@
 {
     width:40vw;
     height:100vh;
-    background-color: white;
+    background-color:whitesmoke;
     overflow:auto;
+    font-size: 24;
+    text-align: center;
+    
+    
+    
 }
 .me
 {
-    background-color: palegreen;
+    background-color: turquoise;
+    
 }
 .userbox
 {
     height: 10vw;
 }
-.parent
-{
+#strtgme{
+    color:blue;
+}
+
+footer{
+    
     text-align: center;
+    font-size: 10vh;
+    color:beige;
+    background-color:cadetblue;
+    box-shadow: 15px 15px;
+    position:fixed;bottom: 0vh;
+    width: 100%;
+    padding: 1vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline;  
+    margin-left: -10px;
+    
+}
+
+.usernamelabel{
+    
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  padding: 2vh;
+  padding-bottom: 1vh;
+  
+  
+}
+.usernameinput{
+
+        font-size: 20px;
+   text-align: center;
+   margin-left: 22px;
+   
+   
+}
+.labelinput1{
+    background-color:teal;
+    padding: 1vh;
+    width:55vh;
+    
+    margin: 0px auto;
+    margin-top: 13vh;
+    border: 8px ridge floralwhite;
+    padding: 1vw;
+    
+    
+}
+
+.roomlabel{
+    color: white;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 2vh;
+    
+    padding-bottom: 1vh;
+    
+}
+.roominput{
+    font-size: 20px;
+    text-align: center;
+    border: 0px;
+    margin-left: 20px;
+    box-shadow: inset;
+    
+}
+.labelinput2{
+    background-color:teal;
+    padding: 2vh;
+    width: 50vh;
+    margin: 0px auto;
+    border: 10px ridge floralwhite;
+    
+    padding: 1vw;
+}
+
+.create{
+    color:teal;
+    font-size: 3vw;
+    padding: 10px;
+    border-radius: 7%;
+    margin-top: 10vh;
+    border: 6px outset darkcyan;
+
+    
+}
+.parentcr{
+    text-align: center;
+    
+    
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:500px){
+    
+    
+.imgd{ margin-top: 9vh;
+        size: 20vw;
+        width:90vw;
+}
+.imgd1{
+    
+margin-top: 35vh;
+}
+.body{
+    display: block;
+}
+.jcbtn
+{
+    border:7px outset mediumturquoise;
+    background-color:teal;
+    
+    font-size: 30px;
+
+    border-radius:7%;
+    width:50vw;
+    
+    color:white;
+    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.jcbtn1{
+text-align:left;
+padding: 1vw;
+position: fixed;left: 0vw;top: 10vh;
+padding-left: 0px;
+padding-right: 0px;
+
+}
+.jcbtn2{
+    text-align:left;
+    margin-top: 24vh;
+    position: fixed;left: 0vw;top: 13vh;
+    padding: 3vw;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.htp
+{
+text-decoration: none;
+border:5px outset white;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:oldlace;
+   padding: 10px;
+   position:fixed;
+   right:0vh;top:12vh;
+    width:45%;
+    color:teal;
+    font-size: 30px;
+    border-radius: 10%;
+    text-align: center;
+    margin-top: 18vw;
+    
+}
+.htp1{
+    
+}
+
+
+footer{
+    text-align: center;
+    font-size: 10vh;
+    color:beige;
+    background-color:cadetblue;
+    box-shadow: 15px 15px;
+    position:fixed;bottom: 0vh;
+    width: 100%;
+    padding: 1vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline;
+    border: 1px;
+    
+}
+.usernamelabel{
+    
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+    margin: 0 auto;
+  padding: 10px;
+  padding-bottom:0px;
+  
+  
+}
+.usernameinput{
+    
+        
+        font-size: 20px;
+        text-align: center;
+        margin-left: 0px;
+        
+        
+   
+}
+.labelinput1{
+    background-color:whitesmoke;
+
+    background-color:teal;
+    padding: 10px;
+    width:88%;
+    
+    margin: 0px auto;
+    margin-top: 0px;
+    border: 8px ridge floralwhite;
+    
+    text-align: center;
+    
+    position: fixed;top:10vh;
+    
+    border: 0px outset honeydew;
+    
+}
+
+.roomlabel{
+    color:white;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+margin: 0 auto;
+    padding: 1px;
+    
+    padding-bottom: 1px;
+    
+}
+.roominput{
+    font-size: 20px;
+    padding: 1px;
+    text-align: center;
+    border: 0px;
+    margin-left: 0px;
+    box-shadow: inset; 
+    padding-bottom: 1px;
+}
+.labelinput2{
+    background-color:teal;
+    padding-top:1vh;
+    width: 90%;
+    margin: 0px;
+    border: 0px ridge floralwhite;
+ position: fixed; top:25vh;
+  text-align: center;  
+}
+
+.create{
+    font-size: 45px;
+    color:teal;
+    
+    padding: 1px;
+    border-radius: 7%;
+    margin-top: 35vh;
+    border: 6px outset darkcyan;
+    
+    
+    
+    
+}
+.parentcr{
+    overflow-y: hidden;
+    height:100vh;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    margin-right: 20px;
+    
+}
+
+
 }
