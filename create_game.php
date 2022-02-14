@@ -46,8 +46,19 @@
           $query1="INSERT INTO ".$_SESSION['room']."(username,amount) VALUES('".$_SESSION['username']."',1000); ";
           
           $result1=mysqli_query($conn,$query1);
+          $query3="INSERT INTO roomstart VALUES('".$_SESSION['room']."',0);";
+          
+          $result3=mysqli_query($conn,$query3);
+          $query2="SELECT * FROM ".$_SESSION['room']." WHERE username='".$_SESSION['player_no']."';";
+          
+          $result2=mysqli_query($conn,$query2);
+          while($row=mysqli_fetch_assoc($result2))
+          {
+              $_SESSION['ID']=$row['ID'];
+              break;
+          }
           header("location: http://192.168.1.42/Ubid/join_room.php");
           // server address/Ubid/join_room.php
-
+          
     }
     ?>
