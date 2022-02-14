@@ -2,20 +2,27 @@
     <head>
     <title>
 </title>
-<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="global.css"/>
 </head>
-    <body>
-    <div class="parent">
+<meta content ="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<body style= "background-color:honeydew;">
+    <div class="parentcr">
      <form method="post">
-         <label>Enter your Username
-             <input type="text" placeholder="user123" name="username" min-length=5>
+</br><div class="labelinput1">
+         <label class="usernamelabel">Enter your Username
 </br>
-             <label>Enter room name
+             <input class="usernameinput" type="text" placeholder="user123" name="username" min-length=5></div>
+</br></br>
+<div class="labelinput2">
 
-             <input type="text" placeholder="room123" name="room" min-length=5>
-             </br>
-
-             <button class="create" name="join" type="submit"> Join</button>
+             <label class="roomlabel">Enter room name
+</br>
+             <input  class ="roominput" type="text" placeholder="room123" name="room" min-length=5>
+             </br></div>
+            
+<div class="create1">
+             <button class="create" name="join" type="submit"> Join</button></div></div>
 </form>
 </div>
 </body>
