@@ -2,20 +2,29 @@
     <head>
     <title>
 </title>
-<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="global.css"/>
 </head>
-    <body>
-    <div class="parent">
+<meta content ="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <body style= "background-color:honeydew;">
+        <!-- background="img/bgforcr.jpg" style ="background-repeat:no-repeat;background-size:100% 100%">-->
+    <div class="parentcr">
+        <div class="deco">
      <form method="post">
-         <label>Enter your Username
-             <input type="text" placeholder="user123" name="username" min-length=5>
+         <div class="labelinput1">
+         <label class="usernamelabel">Enter your Username
 </br>
-             <label>Enter room name
+             <input class ="usernameinput" type="text" placeholder="user123" name="username" min-length=5/></div>
+</br>
+</br>
 
-             <input type="text" placeholder="room123" name="room" min-length=5>
-             </br>
-
-             <button class="create" name="create" type="submit"> Create</button>
+<div class="labelinput2">
+             <label class="roomlabel">Enter room name
+</br>
+             <input class ="roominput" type="text" placeholder="room123" name="room" min-length=5>
+             </br></div>
+<div class="create1">
+             <button class="create" name="create" type="submit"> Create</button></div></div>
 </form>
 </div>
 </body>
