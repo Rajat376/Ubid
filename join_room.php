@@ -1,5 +1,19 @@
 <?php session_start();
-echo $_SESSION['ID']; ?>
+$ans ="";
+$conn=new mysqli("localhost","root" ,"","ubid");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+ 
+$query2="SELECT * FROM ".$_SESSION['room']." WHERE username='".$_SESSION['username']."';";
+          
+$result2=mysqli_query($conn,$query2);
+while($row=mysqli_fetch_assoc($result2))
+{
+    $_SESSION['ID']=$row['player_no'];
+    break;
+}
+ ?>
 <html>
     <head>
         <link rel="stylesheet" href="global.css">
@@ -64,7 +78,10 @@ function getData1() {
  
   xhr.send();
 }
+function set1()
+{
 
+}
 </script>
 
 </head>
@@ -85,10 +102,10 @@ function getData1() {
           ?>
         <div class="game" id="game">
           <div class="qn" id="qn"></div>
-          <div class="opt1" id="opt1"></div>
-          <div class="opt2" id="opt2"></div>
-          <div class="opt3" id="opt3"></div>
-          <div class="opt4" id="opt4"></div>
+          <div class="opt1" id="opt1" onclick()="set1()"></div>
+          <div class="opt2" id="opt2" onclick()="set2()"></div>
+          <div class="opt3" id="opt3" onclick()="set3()"></div>
+          <div class="opt4" id="opt4" onclick()="set4()"></div>
         </div>
         
         <button class="hide" id="btn" onclick="getData()">get</button>
@@ -112,4 +129,7 @@ function getData1() {
      <script> document.addEventListener('mouseover',()=>{document.getElementById('strt').style.display='none'; })</script>
      <?php
       }
+
+
+      
     ?>
