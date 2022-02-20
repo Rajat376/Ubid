@@ -38,7 +38,7 @@ if(isset($_POST['opt1']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt1']=$row['ca'])
+{if($row['opt1']==$row['ca'])
     $bool=1;
 }
 }
@@ -47,7 +47,7 @@ if(isset($_POST['opt2']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt2']=$row['ca'])
+{if($row['opt2']==$row['ca'])
     $bool=1;
 }
 }
@@ -56,7 +56,7 @@ if(isset($_POST['opt3']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt3']=$row['ca'])
+{if($row['opt3']==$row['ca'])
     $bool=1;
 }
 }
@@ -65,7 +65,7 @@ if(isset($_POST['opt4']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt4']=$row['ca'])
+{if($row['opt4']==$row['ca'])
     $bool=1;
 }
 }
