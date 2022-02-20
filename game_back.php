@@ -70,7 +70,8 @@ $x=$_SESSION['no']+1;
 $_SESSION['no']=$x;
   }
 else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSION['round'])
-{$a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
+{$timeqn=0;
+  $a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
   $_SESSION['qid']=$a;
   //echo $a;
   //echo $_SESSION['no'];
@@ -84,8 +85,9 @@ else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSIO
 break;
   }
 }
-else
-{$a=$_SESSION['no'] - $_SESSION['round'];
+else if($_isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSION['total'])
+{ $timeqn=($time-$_SESSION['fixtime'])%30;
+  $a=$_SESSION['no'] - $_SESSION['round'];
   $_SESSION['qid']=$a;
   //echo $a;
   //echo $_SESSION['no'];
@@ -94,10 +96,15 @@ else
   $query1="SELECT * FROM ".$_SESSION['room']."qn WHERE ID =".$a.";";
   $result1=mysqli_query($conn,$query1);
   while($row=mysqli_fetch_assoc($result1))
-  {echo $_SESSION['no']."|". $row['qn1']." ".$row['person']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|".$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round'];
+  {echo $_SESSION['no']."|". $row['qn1']." ".$row['person']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
+    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round']."|".$timeqn;
 break;
   }
 
+}
+else
+{
+  
 }
 $_SESSION['fixtime']=$_SESSION['round']*20*$_SESSION['count'];
 if($_SESSION['no']<=$_SESSION['round'])

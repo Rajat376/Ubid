@@ -83,6 +83,10 @@ function getData1() {
       document.getElementById('strt').style.display='none';
       if(parseInt(parts[0])<parseInt(parts[8]))
       document.getElementById("slider").style.display='none';
+      if(parseInt(parts[9])>20)
+      {
+        window.location = "http://192.168.1.37/Ubid/timeup.php";
+      }
     }
 
   }
@@ -95,6 +99,7 @@ function show_value(x)
  document.getElementById("slider_value").innerHTML=x;
 }
 setInterval(getData1, 1000);
+
 </script>
 
 </head>
@@ -154,6 +159,7 @@ setInterval(getData1, 1000);
        
      $query="UPDATE roomstart SET strt=1 WHERE roomname='".$_SESSION['room']."';";
      $result=mysqli_query($conn,$query);
+     header("location: http://192.168.1.37/Ubid/join_room.php");
      ?>
      <script> document.addEventListener('mouseover',()=>{document.getElementById('strt').style.display='none'; })</script>
      <?php

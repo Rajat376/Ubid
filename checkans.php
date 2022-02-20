@@ -1,11 +1,40 @@
+<script>
+    function getData1() {
+  
+  var xhr=new XMLHttpRequest();
+  xhr.open("POST","game_back.php",true);
+  xhr.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      parts=this.responseText.split('|');
+      
+    }//document.write(parts[0]);
+    if(parts[0]=="0")
+    {
+    
+    }
+    else
+    {
+      if(parseInt(parts[9])==0)
+      {
+        window.location = "http://192.168.1.37/Ubid/join_room.php";
+      }
+    }
+
+  }
+ 
+  xhr.send();
+}
+setInterval(getData1, 1000);
+    </script>
 <?php
 session_start();
 $conn=new mysqli("localhost","root" ,"","ubid");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
     $bool=0;
-if($_POST['opt1'])
-{$query="SELECT* FROM ".$_SESSION['room']."qn ID=".$_SESSION['qid'].";";
+if(isset($_POST['opt1']))
+{$query="SELECT* FROM ".$_SESSION['room']."qn WHERE ID=".$_SESSION['qid'].";";
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
@@ -13,8 +42,8 @@ while($row=mysqli_fetch_assoc($result))
     $bool=1;
 }
 }
-if($_POST['opt2'])
-{$query="SELECT* FROM ".$_SESSION['room']."qn ID=".$_SESSION['qid'].";";
+if(isset($_POST['opt2']))
+{$query="SELECT* FROM ".$_SESSION['room']."qn WHERE ID=".$_SESSION['qid'].";";
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
@@ -22,8 +51,8 @@ while($row=mysqli_fetch_assoc($result))
     $bool=1;
 }
 }
-if($_POST['opt3'])
-{$query="SELECT* FROM ".$_SESSION['room']."qn ID=".$_SESSION['qid'].";";
+if(isset($_POST['opt3']))
+{$query="SELECT* FROM ".$_SESSION['room']."qn WHERE ID=".$_SESSION['qid'].";";
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
@@ -31,8 +60,8 @@ while($row=mysqli_fetch_assoc($result))
     $bool=1;
 }
 }
-if($_POST['opt4'])
-{$query="SELECT* FROM ".$_SESSION['room']."qn ID=".$_SESSION['qid'].";";
+if(isset($_POST['opt4']))
+{$query="SELECT* FROM ".$_SESSION['room']."qn WHERE ID=".$_SESSION['qid'].";";
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
@@ -42,7 +71,7 @@ while($row=mysqli_fetch_assoc($result))
 }
 if(isset($bool) && $bool==0)
 {
-    $query="UPDATE ".$_SESSION['room']." SET amount=amount-".$_POST['slider']." WHERE ID=".$_SESSION['ID'].";";
+    $query="UPDATE ".$_SESSION['room']." SET amount=amount-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result=mysqli_query($conn,$query);
     ?>
     Wrong Answer
@@ -50,15 +79,16 @@ if(isset($bool) && $bool==0)
 }
 if(isset($bool) && $bool==1)
 {
-    $query="UPDATE ".$_SESSION['room']." SET amount=amount+".$_POST['slider']." WHERE ID=".$_SESSION['ID'].";";
+    $query="UPDATE ".$_SESSION['room']." SET amount=amount+".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result=mysqli_query($conn,$query);
     $id=intval($_SESSION['qid']/$_SESSION['round'])+1;
     $amt=$_POST['slider']/2;
-    $query1="UPDATE ".$_SESSION['room']." SET amount=amount+".$amt." WHERE ID=".$id.";";
+    $query1="UPDATE ".$_SESSION['room']." SET amount=amount+".$amt." WHERE player_no=".$id.";";
     $result1=mysqli_query($conn,$query1);
     ?>
     Correct Answer
     <?php
 }
-}
+
+
 ?>
