@@ -80,18 +80,22 @@ function getData1() {
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
       document.getElementById("time").innerHTML=parts[7];
-      document.getElementById('strt').style.display='none';
-      if(parseInt(parts[10])==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.37/Ubid/myqn.php";
-
-      }
-      
-      if(parseInt(parts[0])<parseInt(parts[8]))
-      document.getElementById("slider").style.display='none';
       if(parseInt(parts[9])>20)
       {
         window.location = "http://192.168.1.37/Ubid/timeup.php";
       }
+      if(parseInt(parts[0])<=parseInt(parts[8]))
+      {
+        document.getElementById("slider").style.display='none';}
+        if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
+      {window.location = "http://192.168.1.37/Ubid/myqn.php";
+
+      }
+      document.getElementById("strt").style.display='none';
+      
+      
+      
+      
     }
 
   }

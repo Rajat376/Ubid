@@ -1,26 +1,24 @@
 <script>
     function getData1() {
-  
+  var parts;
   var xhr=new XMLHttpRequest();
-  xhr.open("POST","game_back.php",true);
-  xhr.onreadystatechange=function() {
+  xr.open("POST","game_back.php",true);
+  xr.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       parts=this.responseText.split('|');
       
-    }//document.write(parts[0]);
-    if(parts[0]=="0")
-    {
-    
     }
-    else
-    {
+    
       if(parseInt(parts[10])!=<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.37/Ubid/join_room.php";}
+      {document.getElementById("abv").innerHTML="Ac";
+        window.location = "http://192.168.1.37/Ubid/join_room.php";
+      }
     }
 
-  }
-  xhr.send();
+  
+  xr.send();
 }
-setInterval(getData1, 1000);
+setInterval(getData1,1000);
     </script>
     Your qn being displayed
+    <div id="abv"></div>
