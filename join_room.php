@@ -16,6 +16,7 @@ while($row=mysqli_fetch_assoc($result2))
  ?>
 <html>
     <head>
+    
         <link rel="stylesheet" href="global.css">
     <title>
 </title>
@@ -45,6 +46,8 @@ document.addEventListener('mouseover',()=>{document.getElementById('btn1');
   
 btn1.click()=true;})
 
+
+
 function getData() {
   
   var xmlhttp=new XMLHttpRequest();
@@ -56,32 +59,56 @@ function getData() {
   xmlhttp.open("POST","join_room_back.php",true);
   xmlhttp.send();
 }
+var parts;
 function getData1() {
   
   var xhr=new XMLHttpRequest();
   xhr.open("POST","game_back.php",true);
   xhr.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      var parts=this.responseText.split('|');
+      parts=this.responseText.split('|');
       
     }//document.write(parts[0]);
     if(parts[0]=="0")
+    {
     document.getElementById("game").innerHTML=parts[1];
+    }
     else
     {document.getElementById("qn").innerHTML=parts[1];
       document.getElementById("opt1").innerHTML=parts[2];
       document.getElementById("opt2").innerHTML=parts[3];
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
+      document.getElementById("time").innerHTML=parts[7];
+      if(parseInt(parts[9])>20)
+      {
+        window.location = "http://192.168.1.37/Ubid/timeup.php";
+      }
+      if(parseInt(parts[0])<=parseInt(parts[8]))
+      {
+        document.getElementById("slider").style.display='none';}
+        if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
+      {window.location = "http://192.168.1.37/Ubid/myqn.php";
+
+      }
+      document.getElementById("strt").style.display='none';
+      
+      
+      
+      
     }
+
   }
  
   xhr.send();
 }
-function set1()
-{
 
+function show_value(x)
+{
+ document.getElementById("slider_value").innerHTML=x;
 }
+setInterval(getData1, 1000);
+
 </script>
 
 </head>
@@ -91,7 +118,7 @@ function set1()
         <div class="users" id="users">
 
         </div>
-        <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1) 
+        <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ) 
           {?><form method="post">
             <button id="strt" class="btn3" name="strtgame" type="submit">start game</button>
    </form>
@@ -99,17 +126,33 @@ function set1()
            
             <?php
           }
+          if(isset($_SESSION['no']) && isset($_SESSION['round']) )
+          {
           ?>
+          
         <div class="game" id="game">
           <div class="qn" id="qn"></div>
-          <div class="opt1" id="opt1" onclick()="set1()"></div>
-          <div class="opt2" id="opt2" onclick()="set2()"></div>
-          <div class="opt3" id="opt3" onclick()="set3()"></div>
-          <div class="opt4" id="opt4" onclick()="set4()"></div>
+          <div class="time" id="time"></div>
+          <form method ="post" action="<?php if(  $_SESSION['no']<=$_SESSION['round']) 
+          {echo "giveans.php";}
+          else
+          {
+            echo "checkans.php";}
+             ?>">
+          <button type="submit" name="opt1" value="1" class="opt1" id="opt1" ></button>
+          <button type="submit" name="opt2" value="2" class="opt2" id="opt2" ></button>
+          <button type="submit" name="opt3" value="3" class="opt3" id="opt3" ></button>
+          <button type="submit" name="opt4" value="4" class="opt4" id="opt4"> </button>
+          <div class="slidecontainer" id="slider">
+  <input type="range" min="0" max="50" value="0" class="slider" name="slider" id="myRange" onchange="show_value(this.value)">
+  <div class="" id="slider_value">0</div>
+</div>
         </div>
-        
+        </form>
+        <?php } ?>
         <button class="hide" id="btn" onclick="getData()">get</button>
         <button class="hide" id="btn1" onclick="getData1()">get</button>
+        
 </div>
 
 </body>
@@ -125,9 +168,11 @@ function set1()
        
      $query="UPDATE roomstart SET strt=1 WHERE roomname='".$_SESSION['room']."';";
      $result=mysqli_query($conn,$query);
+     header("location: http://192.168.1.37/Ubid/join_room.php");
      ?>
      <script> document.addEventListener('mouseover',()=>{document.getElementById('strt').style.display='none'; })</script>
      <?php
+    
       }
 
 

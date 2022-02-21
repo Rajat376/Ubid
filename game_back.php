@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if(!isset($_SESSION['no']))
@@ -10,24 +11,27 @@ $conn=new mysqli("localhost","root" ,"","ubid");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  echo $_SESSION['room'];
+ // echo $_SESSION['room'];
 $query="SELECT * FROM roomstart WHERE roomname='".$_SESSION['room']."'";
 $result=mysqli_query($conn,$query);
 
 while($row=mysqli_fetch_assoc($result))
 {
-    $strt=$row['strt'];
+    $_SESSION['strt']=$row['strt'];
     break;
 }
 
-if($strt==0)
+if($_SESSION['strt']==0)
 {echo "nothing";
    
 
 }
-else if($strt==1)
-{ 
+else if($_SESSION['strt']==1)
+{  if(!isset($_SESSION['time']))
+  $_SESSION['time']=time();
+   $time=time()-$_SESSION['time'];
   
+ 
   if($_SESSION['no']==0 && isset($_SESSION['no']))
   { $query1="SELECT COUNT(player_no) FROM ".$_SESSION['room'];
     $result1=mysqli_query($conn,$query1);
@@ -42,6 +46,7 @@ else if($strt==1)
     $z=$_SESSION['count']*$_SESSION['round'];
     $_SESSION['total']=$z+$_SESSION['count'];
     echo $_SESSION['total'];
+    
   echo $z;
  
 if(isset($_SESSION['admin']) && $_SESSION['admin']==1)
@@ -65,18 +70,47 @@ $x=$_SESSION['no']+1;
 $_SESSION['no']=$x;
   }
 else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSION['round'])
-{$a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
-  echo $a;
-  echo $_SESSION['no'];
-  echo $_SESSION['count'];
-  echo $_SESSION['ID'];
+{
+  $timeqn=0;
+  $a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
+  $_SESSION['qid']=$a;
+  //echo $a;
+  //echo $_SESSION['no'];
+  //echo $_SESSION['count'];
+  //echo $_SESSION['ID'];
   $query1="SELECT * FROM ".$_SESSION['room']."qn WHERE ID =".$a.";";
   $result1=mysqli_query($conn,$query1);
   while($row=mysqli_fetch_assoc($result1))
-  {echo$_SESSION['no']."|". $row['qn1']." ".$_SESSION['username']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|".$row['opt4']."|".$row['ID'];
+  {echo $_SESSION['no']."|". $row['qn1']." ".$_SESSION['username']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
+    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round'];
 break;
   }
 }
+else
+{ $timeqn=($time-$_SESSION['fixtime'])%30;
+  $a=$_SESSION['no'] - $_SESSION['round'];
+  $_SESSION['qid']=$a;
+  $id=intval($_SESSION['qid']/$_SESSION['round'])+1;
+  //echo $a;
+  //echo $_SESSION['no'];
+  //echo $_SESSION['count'];
+  //echo $_SESSION['ID'];
+  $query1="SELECT * FROM ".$_SESSION['room']."qn WHERE ID =".$a.";";
+  $result1=mysqli_query($conn,$query1);
+  while($row=mysqli_fetch_assoc($result1))
+  {echo $_SESSION['no']."|".$row['qn1']." ".$row['person']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
+    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round']."|".$timeqn."|".$id;
+break;
+  }
+
+}
+
+$_SESSION['fixtime']=$_SESSION['round']*20*$_SESSION['count'];
+if($_SESSION['no']<=$_SESSION['round'])
+$k=intval($time/20) +1;
+else
+$k=intval(($time-$_SESSION['round']*20)/30) +$_SESSION['round']+1;
+$_SESSION['no']=$k;
 }
 
 ?>
