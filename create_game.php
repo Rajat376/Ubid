@@ -40,7 +40,7 @@
             die("Connection failed: " . $conn->connect_error);
           }
          
-          $query="CREATE TABLE ".$_SESSION['room']." ( player_no INTEGER AUTO_INCREMENT,username VARCHAR(100),  amount INTEGER, PRIMARY KEY(player_no));";
+          $query="CREATE TABLE ".$_SESSION['room']." ( player_no INTEGER AUTO_INCREMENT,username VARCHAR(100),  amount INTEGER, changed INTEGER, PRIMARY KEY(player_no));";
 
           $result=mysqli_query($conn,$query);
           $query1="INSERT INTO ".$_SESSION['room']."(username,amount) VALUES('".$_SESSION['username']."',1000); ";
@@ -50,7 +50,7 @@
           
           $result3=mysqli_query($conn,$query3);
           
-          header("location: http://192.168.1.45/Ubid/join_room.php");
+          header("location: http://192.168.1.38/Ubid/join_room.php");
           // server address/Ubid/join_room.php
           
     }

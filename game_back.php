@@ -5,7 +5,7 @@ if(!isset($_SESSION['no']))
 $_SESSION['no']=0;
 
 
-$_SESSION['var']="xy4";
+
 
 $conn=new mysqli("localhost","root" ,"","ubid");
 if ($conn->connect_error) {
@@ -22,7 +22,7 @@ while($row=mysqli_fetch_assoc($result))
 }
 
 if($_SESSION['strt']==0)
-{echo "nothing";
+{echo $_SESSION['no'];
    
 
 }
@@ -66,11 +66,10 @@ if(isset($_SESSION['admin']) && $_SESSION['admin']==1)
   }
   
 }
-$x=$_SESSION['no']+1;
-$_SESSION['no']=$x;
+
   }
 else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSION['round'])
-{
+{$id=0;
   $timeqn=0;
   $a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
   $_SESSION['qid']=$a;
@@ -82,7 +81,7 @@ else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSIO
   $result1=mysqli_query($conn,$query1);
   while($row=mysqli_fetch_assoc($result1))
   {echo $_SESSION['no']."|". $row['qn1']." ".$_SESSION['username']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
-    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round'];
+    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round']."|".$timeqn."|".$id."|".$row['ca'];
 break;
   }
 }

@@ -63,15 +63,16 @@ var parts;
 function getData1() {
   
   var xhr=new XMLHttpRequest();
-  xhr.open("POST","game_back.php",true);
+  
   xhr.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       parts=this.responseText.split('|');
       
     }//document.write(parts[0]);
-    if(parts[0]=="0")
-    {
-    document.getElementById("game").innerHTML=parts[1];
+    
+    if(parseInt(parts[0])==0)
+    {document.getElementById("game").style.display='none';
+  
     }
     else
     {document.getElementById("qn").innerHTML=parts[1];
@@ -82,24 +83,35 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.45/Ubid/timeup.php";
+        window.location = "http://192.168.1.38/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {
         document.getElementById("slider").style.display='none';}
         if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.45/Ubid/myqn.php";
+      {window.location = "http://192.168.1.38/Ubid/myqn.php";
 
       }
+      //if(parts[11]!="NULL")
+      //{
+
+      //}
       document.getElementById("strt").style.display='none';
-      
+      if(parseInt(parts[0])<=parseInt(parts[8]))
+      {document.getElementByid("page").action="giveans.php";
+
+      }
+      else
+      {document.getElementByid("page").action="checkans.php";
+
+      }
       
       
       
     }
 
   }
- 
+  xhr.open("POST","game_back.php",true);
   xhr.send();
 }
 
@@ -119,15 +131,14 @@ setInterval(getData1, 1000);
         
         
         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ) 
-          {?><form method="post">
+          {?><form method="post" action="start.php">
             <button id="strt" class="btn3" name="strtgame" type="submit">start game</button>
    </form>
           
            
             <?php
           }
-          if(isset($_SESSION['no']) && isset($_SESSION['round']) )
-          {
+          
           ?>
           
         <div class="game" id="game">
@@ -136,12 +147,7 @@ setInterval(getData1, 1000);
           <i class="fa-solid fa-stopwatch"></i>
           <div class="time" id="time"></div>
           </div>
-          <form method ="post" action="<?php if(  $_SESSION['no']<=$_SESSION['round']) 
-          {echo "giveans.php";}
-          else
-          {
-            echo "checkans.php";}
-             ?>">
+          <form method ="post" action="" id="page">
           <button type="submit" name="opt1" value="1" class="opt1" id="opt1" ></button>
           </br></br>
           <button type="submit" name="opt2" value="2" class="opt2" id="opt2" ></button>
@@ -156,7 +162,7 @@ setInterval(getData1, 1000);
 </div>
         </div>
         </form>
-        <?php } ?>
+        
         <button class="hide" id="btn" onclick="getData()">get</button>
         <button class="hide" id="btn1" onclick="getData1()">get</button>
         
@@ -164,24 +170,4 @@ setInterval(getData1, 1000);
 <script src="https://kit.fontawesome.com/e1445501c8.js" crossorigin="anonymous"></script>
 </body>
     </html>
-    <?php
-    if(isset($_POST['strtgame']))
-    { 
-     $conn=new mysqli("localhost","root" ,"","ubid");
-     if ($conn->connect_error) {
-         die("Connection failed: " . $conn->connect_error);
-         
-       }
-       
-     $query="UPDATE roomstart SET strt=1 WHERE roomname='".$_SESSION['room']."';";
-     $result=mysqli_query($conn,$query);
-     header("location: http://192.168.1.45/Ubid/join_room.php");
-     ?>
-     <script> document.addEventListener('mouseover',()=>{document.getElementById('strt').style.display='none'; })</script>
-     <?php
     
-      }
-
-
-      
-    ?>
