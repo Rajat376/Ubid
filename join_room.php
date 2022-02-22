@@ -16,7 +16,7 @@ while($row=mysqli_fetch_assoc($result2))
  ?>
 <html>
     <head>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="global.css">
     <title>
 </title>
@@ -82,13 +82,13 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.37/Ubid/timeup.php";
+        window.location = "http://192.168.1.45/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {
         document.getElementById("slider").style.display='none';}
         if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.37/Ubid/myqn.php";
+      {window.location = "http://192.168.1.45/Ubid/myqn.php";
 
       }
       document.getElementById("strt").style.display='none';
@@ -113,11 +113,11 @@ setInterval(getData1, 1000);
 
 </head>
     <body >
-        <div class="parent1" id="p1">
+        <div class="container" id="p1">
           
-        <div class="users" id="users">
-
-        </div>
+        <div class="user-container" id="users"></div>
+        
+        
         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']==1 ) 
           {?><form method="post">
             <button id="strt" class="btn3" name="strtgame" type="submit">start game</button>
@@ -132,7 +132,10 @@ setInterval(getData1, 1000);
           
         <div class="game" id="game">
           <div class="qn" id="qn"></div>
+          <div class="time-container" style="display: flex;">
+          <i class="fa-solid fa-stopwatch"></i>
           <div class="time" id="time"></div>
+          </div>
           <form method ="post" action="<?php if(  $_SESSION['no']<=$_SESSION['round']) 
           {echo "giveans.php";}
           else
@@ -140,10 +143,14 @@ setInterval(getData1, 1000);
             echo "checkans.php";}
              ?>">
           <button type="submit" name="opt1" value="1" class="opt1" id="opt1" ></button>
+          </br></br>
           <button type="submit" name="opt2" value="2" class="opt2" id="opt2" ></button>
+          </br>
+          </br>
           <button type="submit" name="opt3" value="3" class="opt3" id="opt3" ></button>
+          </br></br>
           <button type="submit" name="opt4" value="4" class="opt4" id="opt4"> </button>
-          <div class="slidecontainer" id="slider">
+          <div class="slidecontainer" id="slider" style="display: flex; justify-content: space-between;">
   <input type="range" min="0" max="50" value="0" class="slider" name="slider" id="myRange" onchange="show_value(this.value)">
   <div class="" id="slider_value">0</div>
 </div>
@@ -154,7 +161,7 @@ setInterval(getData1, 1000);
         <button class="hide" id="btn1" onclick="getData1()">get</button>
         
 </div>
-
+<script src="https://kit.fontawesome.com/e1445501c8.js" crossorigin="anonymous"></script>
 </body>
     </html>
     <?php
@@ -168,7 +175,7 @@ setInterval(getData1, 1000);
        
      $query="UPDATE roomstart SET strt=1 WHERE roomname='".$_SESSION['room']."';";
      $result=mysqli_query($conn,$query);
-     header("location: http://192.168.1.37/Ubid/join_room.php");
+     header("location: http://192.168.1.45/Ubid/join_room.php");
      ?>
      <script> document.addEventListener('mouseover',()=>{document.getElementById('strt').style.display='none'; })</script>
      <?php

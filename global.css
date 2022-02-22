@@ -72,36 +72,6 @@ top:40vh;
     width:100vw;
     height:100vh;
 }
-.create1{
-    ba
-
-}
-.hide
-{display:none;}
-.users
-{
-    width:40vw;
-    height:100vh;
-    background-color:whitesmoke;
-    overflow:auto;
-    font-size: 24;
-    text-align: center;
-    
-    
-    
-}
-.me
-{
-    background-color: turquoise;
-    
-}
-.userbox
-{
-    height: 10vw;
-}
-#strtgme{
-    color:blue;
-}
 
 footer{
     
@@ -358,9 +328,7 @@ margin: 0 auto;
     border-radius: 7%;
     margin-top: 35vh;
     border: 6px outset darkcyan;
-    
-    
-    
+       
     
 }
 .parentcr{
@@ -373,5 +341,208 @@ margin: 0 auto;
     
 }
 
+}
+
+
+
+
+
+
+
+
+.container{
+    
+    background-color:white;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    height: 100vh;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    
+    
+}
+
+
+.create1{
+    ba
 
 }
+.hide
+{display:none;}
+.user-container
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color:teal;
+    overflow:auto;
+    height: 100vh;
+}
+         
+.me
+{
+    
+    background-color:white;
+    color:black;
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px black;
+    border:solid;
+    border-color: lightblue;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#045D5D;
+    
+    
+}
+.qn{
+    background-image:linear-gradient(white,aliceblue);
+    font-size: 35px;
+    align-content: center;
+    color:#045D5D;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-style:double;
+    
+    box-shadow: 4px 3px 2px 3px teal;
+    border-color:whitesmoke;
+    border-width: 10px;
+    border-radius: 15px;
+    text-align: center;
+    margin-left: 65px;
+    margin-top: 30px;
+    margin-right: 65px;
+    padding: 15px;
+}
+.opt1{
+    font-size:20px;
+    color:white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    padding: 8px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color:teal;
+}
+.opt2{
+    font-size:20px;
+    color:white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:teal;
+    border-radius: 5px;
+    padding: 8px;
+}
+    
+
+.opt3{font-size:20px;
+    color:white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: teal;
+
+    border-radius: 5px;
+    padding:8px;
+
+}
+.opt4{
+    font-size:20px;
+    color:white;
+    
+    background-color:teal;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.time{
+    font-size: 25px;
+color: red;
+text-align: center;
+padding-bottom: 35px;
+padding-top: 18px;
+}
+.fa-solid{
+    size: 100px;
+    color: pink;
+    padding: 20px;
+    
+}
+.slidecontainer{
+    margin-top: 50px;
+    font-size: 50px;
+
+}
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: pink;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+}
+#slider_value{
+    background-color:;
+    color: cadetblue;
+    margin-left: 30vw;
+    margin-right: 38vw;
+    border-radius: 65%;
+    font-size: 25px;
+    
+}
+.slider input[type="range"]{
+    -webkit-appearance: none;
+}
+.userbox
+{
+    height: 7vh;
+    text-align:center;
+    justify-content: baseline;
+    
+}
+#strtgme{
+    color:cadetblue;
+} 
+body{margin:0px;
+
+}
+.game{grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100vh;
+
+    background-color:aliceblue;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+
+}
+
+
+
+
+
+

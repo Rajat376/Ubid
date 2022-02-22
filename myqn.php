@@ -11,7 +11,7 @@
     
       if(parseInt(parts[10])!=<?php echo $_SESSION['ID']; ?>)
       {document.getElementById("abv").innerHTML="Ac";
-        window.location = "http://192.168.1.37/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 
