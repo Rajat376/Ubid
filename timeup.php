@@ -16,7 +16,7 @@
     {
       if(parseInt(parts[9])<20)
       {
-        window.location = "http://192.168.1.38/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 

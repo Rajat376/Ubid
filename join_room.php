@@ -83,13 +83,13 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.38/Ubid/timeup.php";
+        window.location = "http://192.168.1.45/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {
         document.getElementById("slider").style.display='none';}
         if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.38/Ubid/myqn.php";
+      {window.location = "http://192.168.1.45/Ubid/myqn.php";
 
       }
       //if(parts[11]!="NULL")
@@ -98,11 +98,11 @@ function getData1() {
       //}
       document.getElementById("strt").style.display='none';
       if(parseInt(parts[0])<=parseInt(parts[8]))
-      {document.getElementByid("page").action="giveans.php";
+      {document.getElementById("page").action="giveans.php";
 
       }
       else
-      {document.getElementByid("page").action="checkans.php";
+      {document.getElementById("page").action="checkans.php";
 
       }
       
@@ -118,6 +118,7 @@ function getData1() {
 function show_value(x)
 {
  document.getElementById("slider_value").innerHTML=x;
+ document.getElementById("slider_value").style.margin="0vw 0vw 0vw "+(x*1.75/5)+"vw";
 }
 setInterval(getData1, 1000);
 
@@ -156,9 +157,9 @@ setInterval(getData1, 1000);
           <button type="submit" name="opt3" value="3" class="opt3" id="opt3" ></button>
           </br></br>
           <button type="submit" name="opt4" value="4" class="opt4" id="opt4"> </button>
-          <div class="slidecontainer" id="slider" style="display: flex; justify-content: space-between;">
-  <input type="range" min="0" max="50" value="0" class="slider" name="slider" id="myRange" onchange="show_value(this.value)">
-  <div class="" id="slider_value">0</div>
+          <div class="slidecontainer" id="slider">
+  <input type="range" min="0" max="50" value="0" class="slider" name="slider" id="myRange" onmouseover="show_value(this.value)" onclick="show_value(this.value)" onmousemove="show_value(this.value)" onchange="show_value(this.value)">
+  <div class="slidervalue" id="slider_value">0</div>
 </div>
         </div>
         </form>

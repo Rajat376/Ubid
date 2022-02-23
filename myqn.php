@@ -18,7 +18,7 @@
       
       if(parseInt(parts[10])!=<?php echo $_SESSION['ID']; ?>)
       {
-        window.location = "http://192.168.1.38/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 
