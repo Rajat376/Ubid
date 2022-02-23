@@ -83,19 +83,16 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.45/Ubid/timeup.php";
+        window.location = "http://192.168.1.40/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {
         document.getElementById("slider").style.display='none';}
         if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.45/Ubid/myqn.php";
+      {window.location = "http://192.168.1.40/Ubid/myqn.php";
 
       }
-      //if(parts[11]!="NULL")
-      //{
-
-      //}
+      
       document.getElementById("strt").style.display='none';
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
@@ -113,6 +110,25 @@ function getData1() {
   }
   xhr.open("POST","game_back.php",true);
   xhr.send();
+  if(parts[11]!="NULL")
+      {if(part[11]==parts[2])
+        {document.getElementById("opt1").classList.add("correct");
+
+        }
+        if(part[11]==parts[3])
+        {document.getElementById("opt2").classList.add("correct");
+
+        }
+        if(part[11]==parts[4])
+        {document.getElementById("opt3").classList.add("correct");
+
+        }
+        if(part[11]==parts[5])
+        {document.getElementById("opt4").classList.add("correct");
+
+        }
+
+      }
 }
 
 function show_value(x)
@@ -168,7 +184,7 @@ setInterval(getData1, 1000);
         <button class="hide" id="btn1" onclick="getData1()">get</button>
         
 </div>
-<script src="https://kit.fontawesome.com/e1445501c8.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/e1.40501c8.js" crossorigin="anonymous"></script>
 </body>
     </html>
     

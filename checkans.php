@@ -16,7 +16,7 @@
     {
       if(parseInt(parts[9])==0)
       {
-        window.location = "http://192.168.1.45/Ubid/join_room.php";
+        window.location = "http://192.168.1.40/Ubid/join_room.php";
       }
     }
 
@@ -71,7 +71,9 @@ while($row=mysqli_fetch_assoc($result))
 }
 if(isset($bool) && $bool==0)
 {
-    $query="UPDATE ".$_SESSION['room']." SET amount=amount-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
+    $query1="UPDATE ".$_SESSION['room']." SET amount=amount-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
+    $result1=mysqli_query($conn,$query1);
+    $query="UPDATE ".$_SESSION['room']." SET changed=-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result=mysqli_query($conn,$query);
     ?>
     Wrong Answer
@@ -85,6 +87,8 @@ if(isset($bool) && $bool==1)
     $amt=$_POST['slider']/2;
     $query1="UPDATE ".$_SESSION['room']." SET amount=amount+".$amt." WHERE player_no=".$id.";";
     $result1=mysqli_query($conn,$query1);
+    $query2="UPDATE ".$_SESSION['room']." SET changed=".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
+    $result2=mysqli_query($conn,$query);
     ?>
     Correct Answer
     <?php

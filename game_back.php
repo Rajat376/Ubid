@@ -97,9 +97,13 @@ else
   $query1="SELECT * FROM ".$_SESSION['room']."qn WHERE ID =".$a.";";
   $result1=mysqli_query($conn,$query1);
   while($row=mysqli_fetch_assoc($result1))
-  {echo $_SESSION['no']."|".$row['qn1']." ".$row['person']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
-    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round']."|".$timeqn."|".$id;
+  { if($row['ca']=="NULL")
+    { $k=$_SESSION['time']-30;
+    $_SESSION['time']=$k;}
+    echo $_SESSION['no']."|".$row['qn1']." ".$row['person']." ".$row['qn2']."|".$row['opt1']."|".$row['opt2']."|".$row['opt3']."|"
+    .$row['opt4']."|".$row['ID']."|".$time."|".$_SESSION['round']."|".$timeqn."|".$id."|".$row['ca'];;
 break;
+
   }
 
 }
