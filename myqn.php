@@ -21,6 +21,7 @@
   xr1.send();
 }
 }
+SetInterval(getData3,1000);
   var parts;
     function getData2() {
   
@@ -49,7 +50,7 @@
 
 
 setInterval(getData2,1000);
-SetInterval(getData3,1000);
+
     </script>
     </head>
     <body>

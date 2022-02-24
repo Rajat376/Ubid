@@ -75,7 +75,8 @@ function getData1() {
   
     }
     else
-    {document.getElementById("qn").innerHTML=parts[1];
+    {document.getElementById("game").style.display='block';
+      document.getElementById("qn").innerHTML=parts[1];
       document.getElementById("opt1").innerHTML=parts[2];
       document.getElementById("opt2").innerHTML=parts[3];
       document.getElementById("opt3").innerHTML=parts[4];
@@ -86,15 +87,6 @@ function getData1() {
         window.location = "http://192.168.1.40/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
-      {
-        document.getElementById("slider").style.display='none';}
-        if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.40/Ubid/myqn.php";
-
-      }
-      
-      document.getElementById("strt").style.display='none';
-      if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
 
       }
@@ -102,6 +94,21 @@ function getData1() {
       {document.getElementById("page").action="checkans.php";
 
       }
+      if(parseInt(part[10])==<?php echo $_SESSION['ID']; ?>)
+      {window.location = "http://192.168.1.40/Ubid/myqn.php";
+
+      }
+      if(parseInt(parts[0])>parseInt(parts[8]))
+      {
+        document.getElementById("slider").style.display='block';}
+        
+      
+      document.getElementById("strt").style.display='none';
+      if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
+      {window.location = "http://192.168.1.40/Ubid/myqn.php";
+
+      }
+      
       
       
       

@@ -503,7 +503,7 @@ padding: 1vh;
 }
 .slidecontainer{
     margin-top: 98vh;
-    
+    display: none;
 
 position: fixed;bottom:0.2vh; right:1vw; left: 15vw;
 width: 100%;
