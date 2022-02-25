@@ -2,26 +2,7 @@
 <html>
   <head>
 <script>
-  function getData3() {
   
-  var xr1=new XMLHttpRequest();
-  
-  xr1.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("result").innerHTML=this.responseText;
-      
-    }
-    
-      
-      
-    
-    
-
-    xr1.open("POST","myqn_back.php",true); 
-  xr1.send();
-}
-}
-SetInterval(getData3,1000);
   var parts;
     function getData2() {
   
@@ -38,7 +19,7 @@ SetInterval(getData3,1000);
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
       
-      if(parseInt(parts[10])!=<?php echo $_SESSION['ID']; ?>)
+      if(parseInt(parts[10]) != <?php echo $_SESSION['ID']; ?>)
       {
         window.location = "http://192.168.1.40/Ubid/join_room.php";
       }
@@ -50,6 +31,18 @@ SetInterval(getData3,1000);
 
 
 setInterval(getData2,1000);
+function getData3() {
+  
+  var xm=new XMLHttpRequest();
+  xm.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("result").innerHTML=this.responseText;
+    }
+  }
+  xm.open("POST","myqn_back.php",true);
+  xm.send();
+}
+setInterval(getData3,1000);
 
     </script>
     </head>

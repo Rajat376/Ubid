@@ -11,8 +11,10 @@ $result2=mysqli_query($conn,$query2);
 while($row=mysqli_fetch_assoc($result2))
 {
     $_SESSION['ID']=$row['player_no'];
+    
     break;
 }
+
  ?>
 <html>
     <head>
@@ -94,20 +96,19 @@ function getData1() {
       {document.getElementById("page").action="checkans.php";
 
       }
-      if(parseInt(part[10])==<?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.40/Ubid/myqn.php";
-
-      }
+      
       if(parseInt(parts[0])>parseInt(parts[8]))
       {
-        document.getElementById("slider").style.display='block';}
+        document.getElementById("slider").style.display='block';
+        }
         
       
-      document.getElementById("strt").style.display='none';
-      if(parseInt(parts[10]) ==<?php echo $_SESSION['ID']; ?>)
+      
+      if(parseInt(parts[10]) == <?php echo $_SESSION['ID']; ?>)
       {window.location = "http://192.168.1.40/Ubid/myqn.php";
 
       }
+      document.getElementById("strt").style.display='none';
       
       
       
@@ -143,7 +144,7 @@ function show_value(x)
  document.getElementById("slider_value").innerHTML=x;
  document.getElementById("slider_value").style.margin="0vw 0vw 0vw "+(x*1.75/5)+"vw";
 }
-setInterval(getData1, 1000);
+setInterval(getData1, 500);
 
 </script>
 
