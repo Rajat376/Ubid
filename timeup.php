@@ -1,3 +1,5 @@
+<html>
+  <head>
 <script>
     function getData1() {
   
@@ -16,7 +18,7 @@
     {
       if(parseInt(parts[9])<20)
       {
-        window.location = "http://192.168.1.45/Ubid/join_room.php";
+        window.location = "http://192.168.1.43/Ubid/join_room.php";
       }
     }
 
@@ -25,6 +27,23 @@
   xhr.send();
 }
 setInterval(getData1, 1000);
+function getData3() {
+  
+  var xm=new XMLHttpRequest();
+  xm.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("result").innerHTML=this.responseText;
+    }
+  }
+  xm.open("POST","myqn_back.php",true);
+  xm.send();
+}
+setInterval(getData3,1000);
     </script>
+    </head>
+    <body>
 Time UP 
 Next Question starting .... 
+<div class="result" id="result"></div>
+</body>
+</html>

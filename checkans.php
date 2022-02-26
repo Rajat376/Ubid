@@ -1,3 +1,6 @@
+<html>
+    <head>
+
 <script>
     function getData1() {
   
@@ -16,7 +19,7 @@
     {
       if(parseInt(parts[9])==0)
       {
-        window.location = "http://192.168.1.45/Ubid/join_room.php";
+        window.location = "http://192.168.1.43/Ubid/join_room.php";
       }
     }
 
@@ -25,7 +28,22 @@
   xhr.send();
 }
 setInterval(getData1, 1000);
+
+function getData3() {
+  
+  var xm=new XMLHttpRequest();
+  xm.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("result").innerHTML=this.responseText;
+    }
+  }
+  xm.open("POST","myqn_back.php",true);
+  xm.send();
+}
+setInterval(getData3,1000);
     </script>
+    </head>
+    <body>
 <?php
 session_start();
 $conn=new mysqli("localhost","root" ,"","ubid");
@@ -38,7 +56,8 @@ if(isset($_POST['opt1']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt1']==$row['ca'])
+{$ans= $row['ca'];
+    if($row['opt1']==$row['ca'])
     $bool=1;
 }
 }
@@ -47,7 +66,8 @@ if(isset($_POST['opt2']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt2']==$row['ca'])
+{$ans= $row['ca'];
+    if($row['opt2']==$row['ca'])
     $bool=1;
 }
 }
@@ -56,7 +76,8 @@ if(isset($_POST['opt3']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt3']==$row['ca'])
+{$ans= $row['ca'];
+    if($row['opt3']==$row['ca'])
     $bool=1;
 }
 }
@@ -65,7 +86,8 @@ if(isset($_POST['opt4']))
     $result=mysqli_query($conn,$query);
     
 while($row=mysqli_fetch_assoc($result))
-{if($row['opt4']==$row['ca'])
+{$ans= $row['ca'];
+    if($row['opt4']==$row['ca'])
     $bool=1;
 }
 }
@@ -77,7 +99,8 @@ if(isset($bool) && $bool==0)
     $result=mysqli_query($conn,$query);
     ?>
     Wrong Answer
-    <?php
+    Correct answer <?php echo $ans; 
+    
 }
 if(isset($bool) && $bool==1)
 {
@@ -88,7 +111,7 @@ if(isset($bool) && $bool==1)
     $query1="UPDATE ".$_SESSION['room']." SET amount=amount+".$amt." WHERE player_no=".$id.";";
     $result1=mysqli_query($conn,$query1);
     $query2="UPDATE ".$_SESSION['room']." SET changed=".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
-    $result2=mysqli_query($conn,$query);
+    $result2=mysqli_query($conn,$query2);
     ?>
     Correct Answer
     <?php
@@ -96,3 +119,6 @@ if(isset($bool) && $bool==1)
 
 
 ?>
+<div class="result" id="result"></div>
+</body>
+    </html>
