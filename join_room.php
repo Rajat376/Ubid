@@ -86,7 +86,7 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.40/Ubid/timeup.php";
+        window.location = "http://192.168.1.45/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
@@ -105,7 +105,7 @@ function getData1() {
       
       
       if(parseInt(parts[10]) == <?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.40/Ubid/myqn.php";
+      {window.location = "http://192.168.1.45/Ubid/myqn.php";
 
       }
       document.getElementById("strt").style.display='none';
@@ -192,7 +192,7 @@ setInterval(getData1, 500);
         <button class="hide" id="btn1" onclick="getData1()">get</button>
         
 </div>
-<script src="https://kit.fontawesome.com/e1.40501c8.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/e1.45501c8.js" crossorigin="anonymous"></script>
 </body>
     </html>
     

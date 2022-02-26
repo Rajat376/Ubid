@@ -11,7 +11,7 @@ session_start();
      $query="UPDATE roomstart SET strt=1 WHERE roomname='".$_SESSION['room']."';";
      $result=mysqli_query($conn,$query);
      
-     header("location: http://192.168.1.40/Ubid/join_room.php");
+     header("location: http://192.168.1.45/Ubid/join_room.php");
     
     
       

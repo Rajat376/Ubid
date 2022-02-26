@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <html>
   <head>
+  <link rel="stylesheet" href="global.css">
 <script>
   
   var parts;
@@ -19,10 +20,10 @@
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
       
-      if(parseInt(parts[10]) != <?php echo $_SESSION['ID']; ?>)
+      /*if(parseInt(parts[10]) != <?php //echo $_SESSION['ID']; ?>)
       {
-        window.location = "http://192.168.1.40/Ubid/join_room.php";
-      }
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
+      }*/
     }
 
     xr.open("POST","game_back.php",true); 
@@ -47,13 +48,17 @@ setInterval(getData3,1000);
     </script>
     </head>
     <body>
-    Your qn being displayed
-  
-    <div class="qn" id="qn"></div>
-    <div class="opt1" id="opt1"></div>    
-    <div class="opt2" id="opt2"></div>
-    <div class="opt3" id="opt3"></div>
-    <div class="opt4" id="opt4"></div>    
+      <div class="container1">
+      <div class="myque">
+   <div class="qndisplay"> Your qn being displayed</div></br>
+</br>
+    <div class="qnn" id="qn"></div>
+    <div class="optt1" id="opt1"></div>    
+    <div class="optt2" id="opt2"></div>
+    <div class="optt3" id="opt3"></div>
+    <div class="optt4" id="opt4"></div>    
+</div>
     <div class="result" id="result"></div>
+</div>
 </body>
     </html>

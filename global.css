@@ -365,10 +365,11 @@ margin: 0 auto;
 
 .create1{
     ba
-
 }
+
 .hide
-{display:none;}
+{display:none;
+}
 .user-container
 {
     grid-column-start: 1;
@@ -623,5 +624,171 @@ justify-items: center;
 
 
 
+  
 
 
+
+.qndisplay{
+    text-align: center;
+    margin: 0 auto;
+    background-color:#045D5D;
+    color:white;
+    border:solid;
+    border-color: beige;
+    border-width: 5px;
+    border-radius: 10px;
+    font-size: 2.5vw;
+    padding: 0.75vw;
+    max-width: 55%;
+
+}
+.myque{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color:whitesmoke;
+    padding: 1vw;
+    height: 100vh;
+}
+.result{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100vh;
+justify-content: center;
+align-items: center;
+align-content: center;
+justify-items: center;
+    background-color:rgb(13,13,13);
+     grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    overflow: auto;
+    
+}
+.qnn{
+    color:#045D5D;
+    font-size: 2vw;
+   text-align: left;
+
+}
+
+.optt1{
+    color:#045D5D;
+    font-size: 2vw;
+    text-align: left;
+}
+
+.optt2{
+    color:#045D5D;
+    font-size: 2vw;
+text-align: left;
+}
+
+.optt3{
+    color:#045D5D;
+    font-size: 2vw;
+text-align:left;
+}
+
+.optt4{
+    color:#045D5D;
+    font-size: 2vw;
+text-align:left;
+}
+.hashrank{
+    color:white;
+    font-size: 2vw;
+    text-align: center;
+    padding: 1vw;
+    padding-left: 10vw;
+    
+}
+.resultuser{
+    color:white;
+    padding: 1vw;
+    text-align: center;
+    
+    
+}
+.resultamount{
+    color:white;
+    padding: 1vw;
+    text-align: center;
+    
+    
+    
+}
+.resultforthisround{
+    color:black;
+
+    font-size: 2.5vw;
+    padding: 0.75vw;
+    background-color: whitesmoke;
+    border:solid;
+    border-width: 5px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:2.5vh;
+    
+}
+.score{
+    color:pink;
+ text-align: center;padding: 1vw;
+    
+
+}
+.containerresult{
+    text-align:center;
+    
+    font-size: 2vw;
+    
+    
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+    height: 0.1vh;
+    display: flex;
+
+    margin-top:-6vh;
+    
+    
+
+
+   
+}
+
+.container1{
+    background-color:white;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    height: 100vh;
+    grid-template-rows: 0.5fr;
+    grid-column-gap: 15px;
+    
+
+}
+.c1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color:teal;
+    
+    height: 100vh;
+
+}
+.c2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100vh;
+justify-content: center;
+align-items: center;
+align-content: center;
+justify-items: center;
+    background-color:aliceblue;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    overflow: auto;
+
+}
