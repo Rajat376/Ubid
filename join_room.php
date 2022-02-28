@@ -77,7 +77,7 @@ function getData1() {
     {document.getElementById("game").style.display='none';
   
     }
-    else
+    else if(parts[0]<= <?php echo $_SESSION['total']; ?>)
     {document.getElementById("game").style.display='block';
       document.getElementById("qn").innerHTML=parts[1];
       document.getElementById("opt1").innerHTML=parts[2];
@@ -85,9 +85,14 @@ function getData1() {
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
       document.getElementById("time").innerHTML=parts[7];
+      if(parseInt(parts[7])>=parseInt(parts[12]))
+      {
+        window.location = "http://192.168.1.47/Ubid/results.php";
+
+      }
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.45/Ubid/timeup.php";
+        window.location = "http://192.168.1.47/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
@@ -106,38 +111,43 @@ function getData1() {
       
       
       if(parseInt(parts[10]) == <?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.45/Ubid/myqn.php";
+      {window.location = "http://192.168.1.47/Ubid/myqn.php";
 
       }
+      
       document.getElementById("strt").style.display='none';
-      
-      
-      
-      
-    }
-
-  }
-  xhr.open("POST","game_back.php",true);
-  xhr.send();
-  if(parts[11]!="NULL")
-      {if(part[11]==parts[2])
+      if(1)
+      {if(parts[11].localeCompare(parts[2])==0)
         {document.getElementById("opt1").classList.add("correct");
 
         }
-        if(part[11]==parts[3])
+        if(parts[11].localeCompare(parts[3])==0)
         {document.getElementById("opt2").classList.add("correct");
 
         }
-        if(part[11]==parts[4])
+        if(parts[11].localeCompare(parts[4])==0)
         {document.getElementById("opt3").classList.add("correct");
 
         }
-        if(part[11]==parts[5])
+        if(parts[11].localeCompare(parts[5])==0)
         {document.getElementById("opt4").classList.add("correct");
 
         }
 
       }
+      
+      
+      
+    }
+    else
+    {window.location = "http://192.168.1.47/Ubid/results.php";
+
+    }
+
+  }
+  xhr.open("POST","game_back.php",true);
+  xhr.send();
+
 }
 
 function show_value(x)
@@ -193,7 +203,7 @@ setInterval(getData1, 500);
         <button class="hide" id="btn1" onclick="getData1()">get</button>
         
 </div>
-<script src="https://kit.fontawesome.com/e1.45501c8.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/e1.43501c8.js" crossorigin="anonymous"></script>
 </body>
     </html>
     
