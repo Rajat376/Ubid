@@ -1,6 +1,6 @@
 <html>
     <head>
-
+    <link rel="stylesheet" href="global.css">
 <script>
     function getData1() {
   
@@ -19,7 +19,7 @@
     {
       if(parseInt(parts[9])==0)
       {
-        window.location = "http://192.168.1.43/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 
@@ -91,16 +91,24 @@ while($row=mysqli_fetch_assoc($result))
     $bool=1;
 }
 }
+
+ echo "<div class='container0'>";
+echo"<div class='ansdisplay'>";
+
 if(isset($bool) && $bool==0)
 {
     $query1="UPDATE ".$_SESSION['room']." SET amount=amount-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result1=mysqli_query($conn,$query1);
     $query="UPDATE ".$_SESSION['room']." SET changed=-".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result=mysqli_query($conn,$query);
+    echo"<div class='wrongans'>";
     ?>
-    Wrong Answer
-    Correct answer <?php echo $ans; 
-    
+   Oops! Wrong Answer
+    <?php echo "</div></br>"; ?>
+    <?php echo "<div class='wrongcorrect'>";
+    ?>
+    Correct answer: <?php echo $ans; 
+    echo"</div>";
 }
 if(isset($bool) && $bool==1)
 {
@@ -113,12 +121,14 @@ if(isset($bool) && $bool==1)
     $query2="UPDATE ".$_SESSION['room']." SET changed=".$_POST['slider']." WHERE player_no=".$_SESSION['ID'].";";
     $result2=mysqli_query($conn,$query2);
     ?>
-    Correct Answer
+   <?php echo "<div class='correctans'>";?>
+   Hurrah! Correct Answer 
+<?php echo "</div>"; ?>
     <?php
 }
-
+echo"</div>";
 
 ?>
-<div class="result" id="result"></div>
+<div class="resultf" id="result"></div></div>
 </body>
     </html>

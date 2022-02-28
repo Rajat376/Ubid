@@ -11,20 +11,20 @@ if ($conn->connect_error) {
  $i=1;
  while($row=mysqli_fetch_assoc($result))
  {
-     echo "<div class='containerresult'><div class='hashrank'> #".$i."</div><div class='resultuser'>".$row['username']."</div><div class='resultamount'> ".$row['amount']."</div>";
+     echo "<div class='containerresult'><font color='white'> #".$i."</font><font color='white'> ".$row['username']."</font><font color='white'> ".$row['amount']."</font>";
      if($row['changed']==0)
      {
-        echo"<div class='score'>" .$row['changed']."</div>";
+        echo"<div class='score'><font color='aqua'> " .$row['changed']."</font>";
      }
      else if($row['changed']>0)
      {
-        echo "<div class='score'>".$row['changed']."</div>";
+        echo "<font color='aqua'> ".$row['changed']."</font>";
      }
      else if($row['changed']<0)
      {
-        echo"<div class='score'>" .$row['changed']."</div>";
+        echo"<font color='aqua'> " .$row['changed']."</font>";
      }
-     echo"</div></br><br></br><br>";
+     echo"</div></br></div>";
      $i++;
  }
  ?>

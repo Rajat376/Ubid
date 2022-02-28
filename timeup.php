@@ -1,5 +1,6 @@
 <html>
   <head>
+  <link rel="stylesheet" href="global.css">
 <script>
     function getData1() {
   
@@ -18,7 +19,7 @@
     {
       if(parseInt(parts[9])<20)
       {
-        window.location = "http://192.168.1.43/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 
@@ -42,8 +43,9 @@ setInterval(getData3,1000);
     </script>
     </head>
     <body>
-Time UP 
-Next Question starting .... 
-<div class="result" id="result"></div>
+      <div class="container container1">
+<div class="game myque"><div class="timeup">Time UP </div>
+<div class="nextque">Next Question starting ....</div> </div>
+<div class="user-container result" id="result"></div></div>
 </body>
 </html>
