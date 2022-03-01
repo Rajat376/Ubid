@@ -1,3 +1,7 @@
+<?php
+if(isset($_SESSION['room']))
+session_destroy();
+?>
 <html>
     <head>
     <title>

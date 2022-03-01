@@ -63,6 +63,7 @@ function getData() {
   xmlhttp.send();
 }
 var parts;
+setInterval(getData,1000);
 function getData1() {
   
   var xhr=new XMLHttpRequest();
@@ -77,7 +78,7 @@ function getData1() {
     {document.getElementById("game").style.display='none';
   
     }
-    else if(parts[0]<= <?php echo $_SESSION['total']; ?>)
+    else if(1)
     {document.getElementById("game").style.display='block';
       document.getElementById("qn").innerHTML=parts[1];
       document.getElementById("opt1").innerHTML=parts[2];
@@ -85,6 +86,11 @@ function getData1() {
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
       document.getElementById("time").innerHTML=parts[7];
+      <?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
+      {
+        header("location: http://192.168.1.47/Ubid/results.php");
+      }
+      ?>
       if(parseInt(parts[7])>=parseInt(parts[12]))
       {
         window.location = "http://192.168.1.47/Ubid/results.php";

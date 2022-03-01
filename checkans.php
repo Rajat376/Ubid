@@ -16,10 +16,11 @@
     
     }
     else
-    {if(parts[0]> <?php echo $_SESSION['total'];?>)
-    {window.location = "http://192.168.1.47/Ubid/results.php";
-
-    }
+    {<?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
+      {
+        header("location: http://192.168.1.47/Ubid/results.php");
+      }
+      ?>
       if(parseInt(parts[7])>=parseInt(parts[12]))
       {
         window.location = "http://192.168.1.47/Ubid/results.php";
