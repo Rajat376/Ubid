@@ -54,7 +54,7 @@ session_destroy();
           
           $result3=mysqli_query($conn,$query3);
           
-          header("location: http://192.168.1.47/Ubid/join_room.php");
+          header("location: http://192.168.1.45/Ubid/join_room.php");
           // server address/Ubid/join_room.php
           
     }

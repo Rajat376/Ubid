@@ -721,8 +721,8 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: baseline;
     font-size: 2vw;
     text-align: left;
-     border-radius: 15px;
-     min-width: 150px;
+    border-radius: 15px;
+    min-width: 150px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:#045D5D;
     word-spacing: 5px;
@@ -828,4 +828,78 @@ margin-top: 30vh;
 {
     color: red;
     background-color: green;
+}
+.finalresults1{
+    
+    background-image: linear-gradient(rgb(249,166,2) ,yellow);
+    text-align: left;
+    align-self: baseline;
+    font-size:2.5vw;
+    box-shadow: 4px 4px peru;
+    border-radius:10px;
+    padding: 1vh;
+    padding-left: 3vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 4vh;
+
+}
+.finalresults2{
+    background-color: rgb(166, 155,144);
+    text-align: left;
+background-image: linear-gradient(rgb(166,155,144), silver);
+    font-size:2.5vw;
+    box-shadow: 4px 4px slategray;
+    border-radius:10px;
+    padding: 1vh;
+    padding-left: 3vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+
+}
+
+.finalresults3{
+    background-color: #a97142;
+    background-image: linear-gradient(#a97142,tan);
+    text-align: left;
+   box-shadow: 4px 4px  sienna;
+    font-size:2.5vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 1vh;
+     border-radius:10px;
+    padding-left: 3vw;
+
+}
+.finalresults{
+    text-align: left;
+    border-color: black;
+    font-size:2.5vw;
+    box-shadow: aquamarine;
+    border-radius:10px;
+padding: 1vh;
+padding-left: 3vw;
+background-color: aliceblue;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.resulttitle{
+    text-align: center;
+    font-size: 10vh;
+    color :rgb(48,25,52);
+    background-color:white;
+    box-shadow: 2px 2px seashell;
+    
+    border-radius:20px;
+    width:20%;
+    margin: 0 auto;
+    margin-top: 2vh;
+
+}
+.resultbg{
+    width:40%;
+    
+    text-align: left;
+margin: 0 auto;
+padding: 2vh;
+overflow: auto;
+word-spacing: 3vw;
 }

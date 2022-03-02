@@ -32,5 +32,5 @@ if(isset($_POST['opt4']))
     $result1=mysqli_query($conn,$query1);
 
 }
-header("location: http://192.168.1.47/Ubid/join_room.php");
+header("location: http://192.168.1.45/Ubid/join_room.php");
 ?>

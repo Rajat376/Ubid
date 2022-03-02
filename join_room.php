@@ -88,17 +88,17 @@ function getData1() {
       document.getElementById("time").innerHTML=parts[7];
       <?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
       {
-        header("location: http://192.168.1.47/Ubid/results.php");
+        header("location: http://192.168.1.45/Ubid/results.php");
       }
       ?>
       if(parseInt(parts[7])>=parseInt(parts[12]))
       {
-        window.location = "http://192.168.1.47/Ubid/results.php";
+        window.location = "http://192.168.1.45/Ubid/results.php";
 
       }
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.47/Ubid/timeup.php";
+        window.location = "http://192.168.1.45/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
@@ -117,7 +117,7 @@ function getData1() {
       
       
       if(parseInt(parts[10]) == <?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.47/Ubid/myqn.php";
+      {window.location = "http://192.168.1.45/Ubid/myqn.php";
 
       }
       
@@ -146,7 +146,7 @@ function getData1() {
       
     }
     else
-    {window.location = "http://192.168.1.47/Ubid/results.php";
+    {window.location = "http://192.168.1.45/Ubid/results.php";
 
     }
 

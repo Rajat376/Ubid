@@ -46,7 +46,7 @@ session_destroy();
           if(!$result1)
           echo "No such room";
           
-          header("location: http://192.168.1.47/Ubid/join_room.php");
+          header("location: http://192.168.1.45/Ubid/join_room.php");
 // address of serverr/Ubid/join_room/php
         // Check connection
         

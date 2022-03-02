@@ -15,7 +15,7 @@
       
     }
     if(parts[0]> <?php echo $_SESSION['total'];?>)
-    {window.location = "http://192.168.1.47/Ubid/results.php";
+    {window.location = "http://192.168.1.45/Ubid/results.php";
 
     }
     document.getElementById("qn").innerHTML=parts[1];
@@ -26,7 +26,7 @@
       
       if(parseInt(parts[10]) != <?php echo $_SESSION['ID']; ?>)
       {
-        window.location = "http://192.168.1.47/Ubid/join_room.php";
+        window.location = "http://192.168.1.45/Ubid/join_room.php";
       }
     }
 
