@@ -1,6 +1,6 @@
 <html>
     <head>
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="global.css"/>
 </head>
 <body style="background-color:rgb(48,25,52)">
     

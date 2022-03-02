@@ -826,8 +826,8 @@ margin-top: 30vh;
 }
 .correct
 {
-    color: red;
-    background-color: green;
+    color: white;
+    background-color: red;
 }
 .finalresults1{
     
@@ -903,3 +903,16 @@ padding: 2vh;
 overflow: auto;
 word-spacing: 3vw;
 }
+/*@media (orientation: portrait) {
+    body {
+      width:100vh;
+        height:100vw;
+        overflow-y: hidden;
+        overflow-x: hidden;
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+  }*/

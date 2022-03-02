@@ -19,11 +19,12 @@ $result3=mysqli_query($conn,$query3);
  ?>
 <html>
     <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="global.css">
     <title>
 </title>
 <script type="text/javascript">
+  
   document.addEventListener('DOMContentLoaded',()=>{document.getElementById('btn');
 
 btn.click()=true;})
@@ -56,7 +57,9 @@ function getData() {
   var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      document.getElementById("users").innerHTML=this.responseText;
+      var a=this.responseText.split('|');
+      document.getElementById("users").innerHTML=a[0];
+     // document.getElementById("myRange").max=a[1];
     }
   }
   xmlhttp.open("POST","join_room_back.php",true);
@@ -85,20 +88,20 @@ function getData1() {
       document.getElementById("opt2").innerHTML=parts[3];
       document.getElementById("opt3").innerHTML=parts[4];
       document.getElementById("opt4").innerHTML=parts[5];
-      document.getElementById("time").innerHTML=parts[7];
+      document.getElementById("time").innerHTML=parts[9];
       <?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
       {
-        header("location: http://192.168.1.45/Ubid/results.php");
+        header("location: http://192.168.1.47/Ubid/results.php");
       }
       ?>
       if(parseInt(parts[7])>=parseInt(parts[12]))
       {
-        window.location = "http://192.168.1.45/Ubid/results.php";
+        window.location = "http://192.168.1.47/Ubid/results.php";
 
       }
       if(parseInt(parts[9])>20)
       {
-        window.location = "http://192.168.1.45/Ubid/timeup.php";
+        window.location = "http://192.168.1.47/Ubid/timeup.php";
       }
       if(parseInt(parts[0])<=parseInt(parts[8]))
       {document.getElementById("page").action="giveans.php";
@@ -117,7 +120,7 @@ function getData1() {
       
       
       if(parseInt(parts[10]) == <?php echo $_SESSION['ID']; ?>)
-      {window.location = "http://192.168.1.45/Ubid/myqn.php";
+      {window.location = "http://192.168.1.47/Ubid/myqn.php";
 
       }
       
@@ -146,7 +149,7 @@ function getData1() {
       
     }
     else
-    {window.location = "http://192.168.1.45/Ubid/results.php";
+    {window.location = "http://192.168.1.47/Ubid/results.php";
 
     }
 
@@ -186,7 +189,7 @@ setInterval(getData1, 500);
         <div class="game" id="game">
           <div class="qn" id="qn"></div>
           <div class="time-container" style="display: flex;">
-          <i class="fa-solid fa-stopwatch"></i>
+          <i class="fa-solid fa-stopwatch" ></i>
           <div class="time" id="time"></div>
           </div>
           <form method ="post" action="" id="page">

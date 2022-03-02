@@ -14,10 +14,11 @@
       parts=this.responseText.split('|');
       
     }
-    if(parts[0]> <?php echo $_SESSION['total'];?>)
-    {window.location = "http://192.168.1.45/Ubid/results.php";
-
-    }
+    <?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
+      {
+        header("location: http://192.168.1.47/Ubid/results.php");
+      }
+      ?>
     document.getElementById("qn").innerHTML=parts[1];
       document.getElementById("opt1").innerHTML=parts[2];
       document.getElementById("opt2").innerHTML=parts[3];
@@ -26,7 +27,7 @@
       
       if(parseInt(parts[10]) != <?php echo $_SESSION['ID']; ?>)
       {
-        window.location = "http://192.168.1.45/Ubid/join_room.php";
+        window.location = "http://192.168.1.47/Ubid/join_room.php";
       }
     }
 

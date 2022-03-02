@@ -18,17 +18,17 @@
     else
     {<?php if(isset($_SESSION['total']) && isset($_SESSION['no']) && $_SESSION['no']>$_SESSION['total'])
       {
-        header("location: http://192.168.1.45/Ubid/results.php");
+        header("location: http://192.168.1.47/Ubid/results.php");
       }
       ?>
       if(parseInt(parts[7])>=parseInt(parts[12]))
       {
-        window.location = "http://192.168.1.45/Ubid/results.php";
+        window.location = "http://192.168.1.47/Ubid/results.php";
 
       }
       if(parseInt(parts[9])==0)
       {
-        window.location = "http://192.168.1.45/Ubid/join_room.php";
+        window.location = "http://192.168.1.47/Ubid/join_room.php";
       }
     }
 

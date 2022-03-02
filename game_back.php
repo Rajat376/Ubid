@@ -53,7 +53,7 @@ else if($_SESSION['strt']==1)
  
 if(isset($_SESSION['admin']) && $_SESSION['admin']==1)
 {$query2="CREATE TABLE ".$_SESSION['room']."qn(ID INTEGER AUTO_INCREMENT,
-  qn1 VARCHAR(100),qn2 VARCHAR(100),opt1 VARCHAR(50),opt2 VARCHAR(50),opt3 VARCHAR(50),opt4 VARCHAR(50),
+  qn1 VARCHAR(200),qn2 VARCHAR(200),opt1 VARCHAR(100),opt2 VARCHAR(100),opt3 VARCHAR(100),opt4 VARCHAR(100),
   ca VARCHAR(50),person VARCHAR(50),
   PRIMARY KEY(ID)
 );";
@@ -73,7 +73,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin']==1)
 else if(isset($_SESSION['no']) && $_SESSION['no']>0 && $_SESSION['no']<=$_SESSION['round'])
 {
   $id=0;
-  $timeqn=0;
+  $timeqn=20-($time%20);
   $a=$_SESSION['no'] +$_SESSION['round']*($_SESSION['ID']-1);
   $_SESSION['qid']=$a;
   //echo $a;
@@ -90,7 +90,7 @@ break;
 }
 else if($_SESSION['no']<=$_SESSION['total'])
 { 
-  $timeqn=($time-$_SESSION['fixtime'])%30;
+  $timeqn=(30-($time-$_SESSION['fixtime'])%30);
   $a=intval($_SESSION['no'] - $_SESSION['round']);
   $_SESSION['qid']=$a;
   $id=intval($_SESSION['no']/$_SESSION['round']);
